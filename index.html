@@ -5,6 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculate IT!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spline+Sans+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
@@ -13,6 +23,44 @@
   </head>
   <body>
     <h1>Calculate IT!</h1>
+    <main class="calculator">
+      <div class="calculator__screen">
+        <p class="calculator__screen--second-value">+ 2542</p>
+        <p class="calculator__screen--main-value">2145</p>
+      </div>
+      <div class="calculator__keyboard">
+        <div class="key red" data-calcKey="ac">AC</div>
+        <div class="key red" data-calcKey="del">
+          <i class="fa-solid fa-delete-left"></i>
+        </div>
+        <div class="key special" data-calcKey="div">
+          <i class="fa-solid fa-divide"></i>
+        </div>
+        <div class="key" data-calcKey="7">7</div>
+        <div class="key" data-calcKey="8">8</div>
+        <div class="key" data-calcKey="9">9</div>
+        <div class="key special" data-calcKey="plus">
+          <i class="fa-solid fa-plus"></i>
+        </div>
+        <div class="key" data-calcKey="4">4</div>
+        <div class="key" data-calcKey="5">5</div>
+        <div class="key" data-calcKey="6">6</div>
+        <div class="key special" data-calcKey="minus">
+          <i class="fa-solid fa-minus"></i>
+        </div>
+        <div class="key" data-calcKey="1">1</div>
+        <div class="key" data-calcKey="2">2</div>
+        <div class="key" data-calcKey="3">3</div>
+        <div class="key special" data-calcKey="mul">
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="key special" data-calcKey="comma">,</div>
+        <div class="key" data-calcKey="0">0</div>
+        <div class="key special" data-calcKey="equals">
+          <i class="fa-solid fa-equals"></i>
+        </div>
+      </div>
+    </main>
     <script src="js/main.js"></script>
   </body>
 </html>
