@@ -24,7 +24,7 @@ h1 {
 }
 
 .calculator {
-  aspect-ratio: 2 / 3;
+  aspect-ratio: 3 / 5;
   background: #000;
   border-radius: 10px;
   margin: 0 auto;
@@ -34,7 +34,7 @@ h1 {
 
   &__screen {
     background: #111;
-    height: 20%;
+    min-height: 20%;
     padding: 10px 20px;
     text-align: right;
 
@@ -42,11 +42,13 @@ h1 {
       color: #666;
       font-size: 1.5rem;
       min-height: 30px;
+      word-wrap: break-word;
     }
 
     &--main-value {
       font-size: 2.5rem;
       min-height: 50px;
+      word-wrap: break-word;
     }
   }
 
@@ -76,6 +78,15 @@ h1 {
 
       &:hover {
         background: #ccc;
+      }
+    }
+
+    .red {
+      background: #e00000;
+      color: #fff;
+
+      &:hover {
+        background: #7c0000;
       }
     }
 
