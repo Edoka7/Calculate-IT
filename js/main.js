@@ -7,13 +7,23 @@ const secondInputScreen = document.querySelector("[data-calcScreen = second]");
 let valueX, valueY, operationType;
 
 const renderScreen = () => {
-  secondInputScreen.textContent = valueY;
+  if (valueY === null || valueY === undefined) {
+    secondInputScreen.textContent = valueY;
+  } else {
+    secondInputScreen.textContent = `${valueY} ${operationType}`;
+  }
   mainInputScreen.textContent = valueX;
 };
 
 const inputNumber = (e) => {
-  if (valueX === null || valueX === undefined) {
+  if (valueX === null || valueX === undefined || valueX === "0") {
+    if (e.target.dataset.calckey === ".") {
+      valueX = "0" + ".";
+      return renderScreen();
+    }
     valueX = e.target.dataset.calckey;
+  } else if (e.target.dataset.calckey === "." && valueX.includes(".")) {
+    return;
   } else {
     valueX += e.target.dataset.calckey;
   }
@@ -26,20 +36,20 @@ const doEqueals = () => {
   valueY = Number(valueY);
 
   switch (operationType) {
-    case "/":
+    case "÷":
       return valueY / valueX;
       break;
 
     case "+":
-      return valueX + valueY;
+      return valueY + valueX;
       break;
 
     case "-":
-      return valueX - valueY;
+      return valueY - valueX;
       break;
 
-    case "*":
-      return valueX * valueY;
+    case "×":
+      return valueY * valueX;
       break;
 
     default:
@@ -47,63 +57,81 @@ const doEqueals = () => {
   }
 };
 
+const checkInputs = (operation) => {
+  if (
+    valueX !== null &&
+    valueX !== undefined &&
+    valueX !== "0." &&
+    valueY !== null &&
+    valueY !== undefined
+  ) {
+    valueY = doEqueals();
+    valueX = null;
+    operationType = operation;
+    renderScreen();
+    return true;
+  }
+};
+
 const specialOperation = (e) => {
   const clickKey = e.target.dataset.calcspecialkey;
 
-  switch (clickKey) {
-    case "ac":
-      valueX = null;
-      valueY = null;
-      renderScreen();
-      break;
+  if (clickKey === "ac") {
+    valueX = null;
+    valueY = null;
+    renderScreen();
+  } else if (valueX === null || valueX === undefined) return;
+  else {
+    switch (clickKey) {
+      case "del":
+        valueX = valueX.slice(0, -1);
 
-    default:
-      break;
-  }
+        break;
 
-  if (valueX === null || valueX === undefined) return;
+      case "div":
+        if (checkInputs("÷")) return;
 
-  switch (clickKey) {
-    case "del":
-      valueX = valueX.slice(0, -1);
+        operationType = "÷";
+        valueY = valueX;
+        valueX = null;
+        break;
 
-      break;
+      case "plus":
+        if (checkInputs("+")) return;
 
-    case "div":
-      operationType = "/";
-      valueY = valueX;
-      valueX = null;
+        operationType = "+";
+        valueY = valueX;
+        valueX = null;
 
-      break;
+        break;
 
-    case "plus":
-      operationType = "+";
-      valueY = valueX;
-      valueX = null;
+      case "minus":
+        if (checkInputs("-")) return;
 
-      break;
+        operationType = "-";
+        valueY = valueX;
+        valueX = null;
 
-    case "minus":
-      operationType = "-";
-      valueY = valueX;
-      valueX = null;
+        break;
 
-      break;
+      case "mul":
+        if (checkInputs("×")) return;
 
-    case "mul":
-      operationType = "*";
-      valueY = valueX;
-      valueX = null;
+        operationType = "×";
+        valueY = valueX;
+        valueX = null;
 
-      break;
+        break;
 
-    case "equals":
-      valueX = doEqueals();
-      valueY = null;
-      break;
+      case "equals":
+        valueX = doEqueals();
+        valueY = null;
+        operationType = null;
+        break;
 
-    default:
-      break;
+      default:
+        break;
+    }
   }
 
   renderScreen();
