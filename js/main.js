@@ -91,6 +91,7 @@ const checkInputs = (operation) => {
 
 const specialOperation = (e) => {
   const clickKey = e.target.dataset.calcspecialkey;
+  equalsFlage = false;
 
   if (clickKey === "ac") {
     valueX = null;
