@@ -15,6 +15,8 @@ const renderScreen = () => {
     secondInputScreen.textContent = `${valueY} ${operationType}`;
   }
   mainInputScreen.textContent = valueX;
+
+  console.log(equalsFlage);
 };
 
 const inputNumber = (e) => {
