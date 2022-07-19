@@ -6,6 +6,8 @@ const secondInputScreen = document.querySelector("[data-calcScreen = second]");
 
 let valueX, valueY, operationType;
 
+let equalsFlage = false;
+
 const renderScreen = () => {
   if (valueY === null || valueY === undefined) {
     secondInputScreen.textContent = valueY;
@@ -16,6 +18,13 @@ const renderScreen = () => {
 };
 
 const inputNumber = (e) => {
+  if (equalsFlage) {
+    equalsFlage = false;
+    valueX = null;
+    valueY = null;
+    renderScreen();
+  }
+
   if (
     valueX === null ||
     valueX === undefined ||
@@ -37,6 +46,8 @@ const inputNumber = (e) => {
 };
 
 const doEqueals = () => {
+  equalsFlage = true;
+
   valueX = Number(valueX);
   valueY = Number(valueY);
 
