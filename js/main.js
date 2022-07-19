@@ -84,6 +84,8 @@ const specialOperation = (e) => {
   else {
     switch (clickKey) {
       case "del":
+        valueX = valueX.toString();
+
         valueX = valueX.slice(0, -1);
 
         break;
