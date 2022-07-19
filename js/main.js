@@ -16,7 +16,12 @@ const renderScreen = () => {
 };
 
 const inputNumber = (e) => {
-  if (valueX === null || valueX === undefined || valueX === "0") {
+  if (
+    valueX === null ||
+    valueX === undefined ||
+    valueX === "0" ||
+    valueX === 0
+  ) {
     if (e.target.dataset.calckey === ".") {
       valueX = "0" + ".";
       return renderScreen();
