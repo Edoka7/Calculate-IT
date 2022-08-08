@@ -87,22 +87,50 @@ const checkInputs = (operation) => {
   }
 };
 
+const changeOperationType = (clickKey) => {
+  switch (clickKey) {
+    case "div":
+      operationType = "÷";
+      break;
+
+    case "plus":
+      operationType = "+";
+      break;
+
+    case "minus":
+      operationType = "-";
+      break;
+
+    case "mul":
+      operationType = "×";
+      break;
+
+    default:
+      break;
+  }
+};
+
 const specialOperation = (e) => {
-  const clickKey = e.target.dataset.calcspecialkey;
+  const clickKey = e.currentTarget.dataset.calcspecialkey;
   equalsFlage = false;
 
   if (clickKey === "ac") {
     valueX = null;
     valueY = null;
     renderScreen();
+  } else if (valueY !== null && (valueX === null || valueX === undefined)) {
+    changeOperationType(clickKey);
   } else if (valueX === null || valueX === undefined) return;
   else {
     switch (clickKey) {
       case "del":
         valueX = valueX.toString();
-
         valueX = valueX.slice(0, -1);
 
+        break;
+
+      case "reverse":
+        valueX = valueX.toString() * -1;
         break;
 
       case "div":

@@ -88,12 +88,34 @@ h1 {
   -webkit-transition: background-color 0.2s;
   transition: background-color 0.2s;
 }
-.calculator__keyboard .key:first-of-type, .calculator__keyboard .key:last-of-type {
+.calculator__keyboard .key:last-of-type {
   -ms-flex-preferred-size: 50%;
       flex-basis: 50%;
 }
 .calculator__keyboard .key:hover {
   background: #ccc;
+}
+.calculator__keyboard .reverse {
+  position: relative;
+}
+.calculator__keyboard .reverse div {
+  font-size: 1.5em;
+  -webkit-transform: rotate(20deg);
+          transform: rotate(20deg);
+}
+.calculator__keyboard .reverse .fa-plus,
+.calculator__keyboard .reverse .fa-minus {
+  font-size: 1em;
+}
+.calculator__keyboard .reverse .fa-plus {
+  left: 20%;
+  position: absolute;
+  top: 20%;
+}
+.calculator__keyboard .reverse .fa-minus {
+  bottom: 20%;
+  position: absolute;
+  right: 20%;
 }
 .calculator__keyboard .red {
   background: #e00000;
@@ -135,5 +157,12 @@ h1 {
   .calculator__keyboard .key {
     font-size: 1rem;
     line-height: 50px;
+  }
+  .calculator__keyboard .reverse div {
+    font-size: 1em;
+  }
+  .calculator__keyboard .reverse .fa-plus,
+.calculator__keyboard .reverse .fa-minus {
+    font-size: 0.75em;
   }
 }/*# sourceMappingURL=style.css.map */

@@ -78,13 +78,38 @@ h1 {
       text-align: center;
       transition: background-color 0.2s;
 
-      &:first-of-type,
       &:last-of-type {
         flex-basis: 50%;
       }
 
       &:hover {
         background: #ccc;
+      }
+    }
+
+    .reverse {
+      position: relative;
+
+      div {
+        font-size: 1.5em;
+        transform: rotate(20deg);
+      }
+
+      .fa-plus,
+      .fa-minus {
+        font-size: 1em;
+      }
+
+      .fa-plus {
+        left: 20%;
+        position: absolute;
+        top: 20%;
+      }
+
+      .fa-minus {
+        bottom: 20%;
+        position: absolute;
+        right: 20%;
       }
     }
 
@@ -145,6 +170,17 @@ h1 {
       .key {
         font-size: 1rem;
         line-height: 50px;
+      }
+
+      .reverse {
+        div {
+          font-size: 1em;
+        }
+
+        .fa-plus,
+        .fa-minus {
+          font-size: 0.75em;
+        }
       }
     }
   }
