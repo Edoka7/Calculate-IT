@@ -15,15 +15,11 @@ const renderScreen = () => {
     secondInputScreen.textContent = `${valueY} ${operationType}`;
   }
   mainInputScreen.textContent = valueX;
-
-  console.log(equalsFlage);
 };
 
 const inputNumber = (e) => {
   if (equalsFlage) {
     equalsFlage = false;
-    valueX = null;
-    valueY = null;
     renderScreen();
   }
 
